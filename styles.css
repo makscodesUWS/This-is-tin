@@ -1,0 +1,235 @@
+/* General Body Styling */
+body {
+  font-family: 'Poppins', sans-serif; /* Use a modern font like Poppins */
+  background-color: #111; /* Darker background for a sleek look */
+  color: #fff; /* Light text for better readability */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  flex-direction: column; /* Stack content vertically */
+  padding-top: 40px; /* Adds top padding for space */
+  transition: background-color 0.3s;
+}
+
+/* Heading (h1) Styling */
+h1 {
+  margin-top: 0;
+  padding-top: 20px; /* Adds space above the heading */
+  color: #ffffff;
+  font-size: 2.5rem; /* Adjusted font size */
+  text-align: center;
+}
+
+/* Login Box Styling */
+.login-box {
+  background-color: #222; /* Darker background for the login box */
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Increased box shadow */
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+/* Input Group Styling */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  background-color: #333; /* Slightly lighter background for the input */
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.input-group input:focus {
+  background-color: #444;
+  outline: none;
+  border: 1px solid #007bff; /* Add a blue border on focus */
+}
+
+/* Button Styling */
+button {
+  padding: 14px 22px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle hover effect */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: red;
+  margin-top: 1rem;
+}
+
+/* Login Button on Homepage */
+#login-btn {
+  padding: 12px 22px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#login-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle hover effect */
+}
+
+#login-btn:focus {
+  outline: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .login-box {
+    padding: 2rem;
+    max-width: 90%;
+  }
+
+  .home-container {
+    padding: 2rem;
+    max-width: 90%;
+  }
+}
+
+/* Login Container (Ensuring Space From Top) */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+  padding-top: 40px; /* Adds space between the content and top of the screen */
+}
+// Sample accounts for demo purposes
+const users = {
+  Liam: {
+    username: 'Liam',
+    password: 'password1',
+    email: 'Liam!',
+    role: 'You have 3 tin credits',
+    bio: 'More features coming soon',
+  },
+  Johnny: {
+    username: 'Johnsidus the Third',
+    password: 'password2',
+    email: 'Johnsidius the third!',
+    role: 'You have 3 tin credits',
+    bio: 'More features coming soon',
+  },
+  Kevin: {
+    username: 'Kevin',
+    password: 'password3',
+    email: 'Kevin!',
+    role: 'you have 0 tin credits',
+    bio: 'More features coming soon',
+  },
+};
+document.getElementById('citizenship-test-form')?.addEventListener('submit', function (event) {
+  event.preventDefault();
+  window.location.href = 'index.html';
+});
+// Handle login form submission (on login page)
+document.getElementById('login-form')?.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Get form data
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Check if the username and password match any user
+  const user = users[username];
+  if (user && user.password === password) {
+    // Store user info in localStorage (for demo purposes)
+    localStorage.setItem('username', username);
+    // Redirect directly to user info page
+    window.location.href = 'user-info.html';
+  } else {
+    // Display error message if login fails
+    document.getElementById('error-message').textContent = 'Invalid username or password';
+  }
+});
+
+// On homepage (index.html), check if user is logged in and show relevant buttons
+window.onload = function () {
+  const username = localStorage.getItem('username');
+
+  if (username) {
+    const user = users[username];
+    document.getElementById('welcome-message').textContent = `Hello, ${user.username}!`;
+    document.getElementById('login-btn').style.display = 'none';
+    document.getElementById('logout-btn').style.display = 'block';
+    document.getElementById('profile-btn').style.display = 'block';
+  } else {
+    document.getElementById('welcome-message').textContent = 'You are not logged in.';
+    document.getElementById('login-btn').style.display = 'block';
+    document.getElementById('logout-btn').style.display = 'none';
+    document.getElementById('profile-btn').style.display = 'none';
+  }
+
+  // Handle logout
+  document.getElementById('logout-btn')?.addEventListener('click', function () {
+    localStorage.removeItem('username');
+    window.location.reload();
+  });
+
+  // Handle profile redirection
+  document.getElementById('profile-btn')?.addEventListener('click', function () {
+    window.location.href = 'user-info.html';
+  });
+};
+
+// On user-info.html, display user info
+if (window.location.pathname.includes('user-info.html')) {
+  const username = localStorage.getItem('username');
+  if (username) {
+    const user = users[username];
+    document.getElementById('user-name').textContent = ` Hello, ${user.username}`;
+    document.getElementById('user-role').textContent = ` Congrats: ${user.role}`;
+    document.getElementById('user-bio').textContent = `Dont worry! ${user.bio}`;
+  } else {
+    // Redirect to login if user is not logged in
+    window.location.href = 'login.html';
+  }
+
+  document.getElementById('back-btn').addEventListener('click', function () {
+    window.location.href = 'index.html';
+  });
+}

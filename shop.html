@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tinland Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+
+  <button class="buy-button" onclick="window.location.href='index.html'">Home</button>
+  <!-- Shop Page Content -->
+  <div class="shop-container">
+    <h1>Welcome to the Tinland Shop</h1>
+    <p>DM maks to confirm your order!</p>
+
+    <div class="product-container">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <h2>Basic Card</h2>
+        <p>Small Flex</p>
+        <p class="price">5 tin credits</p>
+        <button class="buy-button" onclick="window.location.href='done.html'">Buy Now</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <h2>Gold Card</h2>
+        <p>Big flex</p>
+        <p class="price">12 tin credits</p>
+        <button class="buy-button" onclick="window.location.href='done.html'">Buy Now</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <h2>Sigma Card</h2>
+        <p>Huge flex!</p>
+        <p class="price">30 tin credits</p>
+        <button class="buy-button" onclick="window.location.href='done.html'">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <h2>Sigma gigachad rizz Card</h2>
+        <p>Huge sigma giga flex!</p>
+        <p class="price">100 tin credits</p>
+        <button class="buy-button" onclick="window.location.href='done.html'">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #111;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2 {
+    color: #fff;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  /* Navbar Styling */
+  nav {
+    background-color: #222;
+    padding: 10px ;
+  }
+
+
+
+  .nav-links {
+    list-style-type: none;
+  }
+
+  .nav-links li {
+    display: inline-block;
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  /* Shop Page Styling */
+  .shop-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .product-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .product-card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+
+  .product-card:hover {
+    transform: scale(1.05);
+  }
+
+  .price {
+    color: #00b0ff;
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
